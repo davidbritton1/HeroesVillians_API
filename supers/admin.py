@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import HeroesVillians
+from .models import HeroesVillian
 
 # Register your models here.
-admin.site.register(HeroesVillians)
+admin.site.register(HeroesVillian)

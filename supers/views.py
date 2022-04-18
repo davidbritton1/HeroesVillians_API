@@ -5,12 +5,12 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import HeroesVillianSerializer
-from .models import HeroesVillians
+from .models import HeroesVillian
 
 @api_view(['GET', 'POST'])
 def super_list(request):
     if request.method == 'GET':
-        supers = HeroesVillians.objects.all()
+        supers = HeroesVillian.objects.all()
         serializer = HeroesVillianSerializer(supers, many=True)
         return Response(serializer.data)
 
@@ -23,7 +23,7 @@ def super_list(request):
       
 @api_view(['GET', 'PUT', 'DELETE'])
 def super_detail(request, pk):
-    super = get_object_or_404(HeroesVillians, pk=pk)
+    super = get_object_or_404(HeroesVillian, pk=pk)
     if request.method == 'GET':
         serializers = HeroesVillianSerializer(super);
         return Response(serializers.data)
